@@ -9,7 +9,13 @@ class Blockchain:
         self.create_genesis_block() 
 
     def create_genesis_block(self):
-        genesis_block = Block(index=0, transaction="Genesis Block", previous_hash="0000000000000000")
+        # Setting timestamp=0 ensures every node computes the exact same Genesis hash
+        genesis_block = Block(
+            index=0, 
+            transaction="Genesis Block", 
+            previous_hash="0000000000000000", 
+            timestamp=0
+        )
         self.chain.append(genesis_block)
 
     def add_transaction(self, sender, receiver, amount):

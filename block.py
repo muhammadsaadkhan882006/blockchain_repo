@@ -4,9 +4,9 @@ import time
 import json
 
 class Block:
-    def __init__(self ,index , transaction , previous_hash , nounce = 0 ):
+    def __init__(self, index, transaction, previous_hash, nounce=0, timestamp=None):
         self.index = index
-        self.timestamp = time.time()
+        self.timestamp = timestamp if timestamp is not None else time.time()
         self.transaction = transaction
         self.previous_hash = previous_hash
         self.nounce = nounce
